@@ -1,0 +1,25 @@
+$Welcome: #0f172a; 
+$introductionDiv: #1e293b;
+$HobbiesDiv: rgb(31,41,55);
+$ProjectsDiv: rgb(30,58,138);
+$cyellow: #FFD400;
+.Welcome {
+    background-color: transparent;
+}
+
+.WelcomeText {
+    color: $cyellow;
+}
+
+
+.IntroductionDiv {
+    background-color: $introductionDiv;
+}
+
+.HobbiesDiv {
+    background-color: $HobbiesDiv;
+}
+
+.ProjectsDiv {
+    background-color: $ProjectsDiv;
+}
