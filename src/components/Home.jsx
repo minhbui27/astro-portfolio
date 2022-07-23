@@ -4,8 +4,7 @@ import ProjectDiv from './ProjectsDiv'
 import HobbiesDiv from './HobbiesDiv'
 import Welcome from './Welcome'
 import {useEffect, useState} from 'react'
-import '../index.css'
-import {motion} from "framer-motion/dist/framer-motion"
+import {motion} from "framer-motion"
 import Nav from './Nav'
 
 
@@ -41,13 +40,13 @@ const Home = () => {
             <motion.div className='z-50 fixed w-screen'> 
                 <Nav/>
             </motion.div>
-            <Welcome/>
-            {/* The component below encloses the Introduction div, which has a height=screen and padding of 8px*/}
-            <IntroductionDiv/>
-            {/* The component below encloses the Hobbies div, which contains some hobbies*/}
-            <HobbiesDiv/>
-            {/* The component below encloses the Projects div, contents will be added later*/}
-            <ProjectDiv/>
+            // <Welcome/>
+            // {/* The component below encloses the Introduction div, which has a height=screen and padding of 8px*/}
+            // <IntroductionDiv/>
+            // {/* The component below encloses the Hobbies div, which contains some hobbies*/}
+            // <HobbiesDiv/>
+            // {/* The component below encloses the Projects div, contents will be added later*/}
+            // <ProjectDiv/>
         </motion.div>
     )
 }

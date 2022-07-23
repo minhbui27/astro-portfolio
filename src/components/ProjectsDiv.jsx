@@ -1,5 +1,5 @@
 import React from 'react'
-import {motion} from 'framer-motion/dist/framer-motion'
+import {motion} from '../framer-motion.d.ts'
 const ProjectDiv = () => {
     return(
         <motion.div id="projects" className='p-8 bg-blue-900 flex flex-col h-screen'>
