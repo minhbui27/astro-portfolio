@@ -1,13 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import App from "../components/App.jsx";
-import {BrowserRouter as Router} from 'react-router-dom';
+import Nav from "../components/Nav.jsx";
+import ProjectsDiv from "../components/ProjectsDiv.jsx";
 ---
 <Layout title="Welcome">
-	<Router>
-		<App/>
-	</Router>
+	<Nav/>
+	<ProjectsDiv/>
 </Layout>
 
 

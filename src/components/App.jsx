@@ -1,16 +1,15 @@
 import Home from './Home.jsx'
-import { Route, Switch} from 'react-router-dom'
-import {AnimatePresence} from '../framer-motion.d.ts'
+import { Route, Switch, BrowserRouter as Router} from 'react-router-dom'
+// import {AnimatePresence} from '../framer-motion.d.ts'
 import Footer from './Footer.jsx'
-
 function App() {
   return (
     <>
+	  <Router>
       {/* <Nav/> */}
-      <AnimatePresence exitBeforeEnter>
         <Switch>
           <Route exact path="/">
-            // <Home/>
+             {/* <Home/> */}
           </Route>
           {/* <Route path="/Welcome">
             <Welcome/>
@@ -26,9 +25,9 @@ function App() {
           </Route> */}
          
         </Switch>
-      </AnimatePresence>
      
-      // <Footer/>
+	  {/* <Footer/>  */}
+	  </Router>
     </>
   );
 }
