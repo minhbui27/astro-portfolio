@@ -8,10 +8,11 @@ title: Poe Dameron X wing
 
 import React, { useEffect, useRef,useState } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useFrame, useUpdate } from '@react-three/fiber'
+import { useFrame } from '@react-three/fiber'
 import { useScroll } from '../helpers/ScrollControls'
 
 export default function Model({ ...props }) {
+	console.log(props.vWidth);
   const [prevPositions, setPrevPositions] = useState({ x: 0, y: 0 })
   const [positions, setPositions] = useState({ x: 0, y: 0 })
   useEffect(() => {

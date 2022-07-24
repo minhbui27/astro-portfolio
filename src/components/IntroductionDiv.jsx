@@ -1,8 +1,7 @@
 import React, { useRef, useEffect, Suspense, useState } from 'react'
-import { useInView, motion, AnimatePresence } from '../framer-motion.d.ts'
+import { useInView, motion, AnimatePresence } from 'framer-motion'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
-import './IntroductionDiv.scss'
 import { ScrollControls, useScroll } from '../helpers/ScrollControls'
 import { Stars } from './Welcome'
 import { Bounds } from '../helpers/BoundsNoRotation.tsx'
@@ -19,9 +18,6 @@ function ScrollingText(props) {
   return (
     <group rotation={props.rotation}>
       <group ref={ref} position={[0, 2, 0]}>
-        // This function below splits the introText intro array elements based
-        // on newline, then creates Text elements for each line that are
-        // vertically spaced by displacement apart.
         {props.text.split('\n').map((t) => {
           displacement += props.separation
           // console.log(t);
@@ -51,21 +47,18 @@ const IntroductionDiv = () => {
   const introText = `Hi, my name is Minh Bui
 	I'm currently a student studying 
 	Computer Engineering at UCSB
-	In the future, I aspire to become 
-	an excellent Software Engineer
-	because I believe that the 
-	solution to many problems,
-	as well as the development 
-	of society will heavily depend 
-	on what we create 
+	aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	`
   const ref = useRef(null)
   // const isInView = useInView(ref, {once: false})
   return (
     <AnimatePresence>
       <motion.div
-        id='introduction'
-        className='introductionDiv flex flex-col h-screen'
+	    id='introduction'
+        className='bg-black flex flex-col h-screen'
         ref={ref}
         // initial = {{opacity: 0}}
         // animate = {{opacity: 1}}

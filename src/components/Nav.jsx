@@ -1,7 +1,8 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { HashLink as Link } from 'react-router-hash-link'
 import { useState } from 'react'
+import * as Scroll from 'react-scroll'
+import { Link } from 'react-scroll'
 import './Nav.scss'
 
 //The smooth scroll animations are made using the package react-scroll, for additional animation options
@@ -117,14 +118,14 @@ function Nav() {
                 {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
 
                 <Link
+                  spy={true}
                   smooth={true}
-                  duration={500}
-                  to='/#home'
+                  to='welcome'
                   className={
                     (scroll < 1
                       ? 'WelcomeText'
                       : 'hover:bg-gray-700 text-white') +
-                    ' hover:bg-gray-900 text-base px-3 py-2 rounded-md text-sm font-medium'
+                    ' cursor-pointer hover:bg-gray-900 text-base px-3 py-2 rounded-md font-medium'
                   }
                   aria-current='page'
                 >
@@ -132,42 +133,42 @@ function Nav() {
                 </Link>
 
                 <Link
-                  smooth={true}
-                  duration={500}
-                  to='/#introduction'
+                  spy={true}
+				  smooth={true}
+                  to='introduction'
                   className={
                     (scroll < 2 && scroll >= 1
                       ? 'bg-gray-700'
                       : 'hover:bg-gray-700') +
-                    ' text-base text-white px-3 py-2 rounded-md text-sm font-medium'
+                    ' cursor-pointer text-base text-white px-3 py-2 rounded-md font-medium'
                   }
                 >
                   Introduction
                 </Link>
 
                 <Link
-                  smooth={true}
-                  duration={500}
-                  to='/#hobbies'
+                  spy={true}
+				  smooth={true}
+                  to='hobbies'
                   className={
                     (scroll < 3 && scroll >= 2
                       ? 'bg-gray-900'
                       : 'hover:bg-gray-700') +
-                    ' text-base text-white px-3 py-2 rounded-md text-sm font-medium'
+                    ' cursor-pointer text-base text-white px-3 py-2 rounded-md font-medium'
                   }
                 >
                   Hobbies
                 </Link>
 
                 <Link
-                  smooth={true}
-                  duration={500}
-                  to='/#projects'
+				  spy={true}
+				  smooth={true}
+                  to ='projects'
                   className={
                     (scroll < 4 && scroll >= 3
                       ? 'bg-gray-900'
                       : 'hover:bg-gray-700') +
-                    ' text-base text-white px-3 py-2 rounded-md text-sm font-medium'
+                    ' cursor-pointer text-base text-white px-3 py-2 rounded-md font-medium'
                   }
                 >
                   Projects
@@ -181,36 +182,28 @@ function Nav() {
         <div className='px-2 pt-2 pb-3 space-y-1'>
           {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
           <Link
-            smooth={true}
-            duration={500}
-            to='/#home'
+            to='welcome'
             className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
           >
             Home
           </Link>
 
           <Link
-            smooth={true}
-            duration={500}
-            to='/#introduction'
+            to='introduction'
             className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
           >
             Introduction
           </Link>
 
           <Link
-            smooth={true}
-            duration={500}
-            to='/#hobbies'
+            to='hobbies'
             className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
           >
             Hobbies
           </Link>
 
           <Link
-            smooth={true}
-            duration={500}
-            to='/#projects'
+            to='projects'
             className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
           >
             Projects

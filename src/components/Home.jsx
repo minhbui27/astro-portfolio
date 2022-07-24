@@ -10,21 +10,21 @@ import Nav from './Nav'
 
 const Home = () => {
     //This function makes sure scroll to the right position when clicking on a link on the navbar
-    const handleScroll = () => {
-        const position = window.scrollY;
-        if(!(position % window.innerHeight)) {
-            window.scrollTo(0,position)
-        }
-    } 
-    //This useEffects outputs the current scroll position of the window
-    useEffect(() => {
-        window.addEventListener('scroll',handleScroll);
-        //cleanup function
-        return () => {
-            window.removeEventListener('scroll',handleScroll);
-        };
+    //const handleScroll = () => {
+    //    const position = window.scrollY;
+    //    if(!(position % window.innerHeight)) {
+    //        window.scrollTo(0,position)
+    //    }
+    //} 
+    ////This useEffects outputs the current scroll position of the window
+    //useEffect(() => {
+    //    window.addEventListener('scroll',handleScroll);
+    //    //cleanup function
+    //    return () => {
+    //        window.removeEventListener('scroll',handleScroll);
+    //    };
 
-    },[])
+    //},[])
     
 
     const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };

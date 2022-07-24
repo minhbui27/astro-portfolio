@@ -1,16 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import Nav from "../components/Nav.jsx";
-import ProjectsDiv from "../components/ProjectsDiv.jsx";
+import Nav from "../components/Nav";
+import Welcome from "../components/Welcome";
+import IntroductionDiv from "../components/IntroductionDiv";
+import HobbiesDiv from "../components/HobbiesDiv";
+import ProjectDiv from "../components/ProjectsDiv";
 ---
-<Layout title="Welcome">
-	<Nav/>
-	<ProjectsDiv/>
-</Layout>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<title>Minh's Website</title>
+</head>
 
+<body>
+	<div>
+		<div class='z-50 fixed w-screen'>
+			<Nav client:idle/>
+		</div>
+		<Welcome client:only="react" />
+		<IntroductionDiv client:visible/>
+		<HobbiesDiv client:visible/>
+		<ProjectDiv client:visible/>
+	</div>
+</body>
+
+</html>
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
 	body {
 		background-color: rgb(17, 24, 39);
 	}
