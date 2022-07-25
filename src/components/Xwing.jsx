@@ -6,28 +6,32 @@ source: https://sketchfab.com/3d-models/poe-dameron-x-wing-a7fd082a1ad54c32bacee
 title: Poe Dameron X wing
 */
 
-import React, { useEffect, useRef,useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useScroll } from '../helpers/ScrollControls'
 
 export default function Model({ ...props }) {
-	console.log(props.vWidth);
   const [prevPositions, setPrevPositions] = useState({ x: 0, y: 0 })
-  const [positions, setPositions] = useState({ x: 0, y: 0 })
+  const [positionX, setPositionX] = useState(0)
+  const [positionY, setPositionY] = useState(0)
   useEffect(() => {
     setPrevPositions({
-      x: positions.x,
-      y: positions.y,
+      x: positionX,
+      y: positionY,
     })
-    setPositions({
-      x: props.cursorPosition.x,
-      y: props.cursorPosition.y,
-    })
+    setPositionX(
+      (2 * ((props.cursorPosition.x - props.width / 2) * props.vWidth)) /
+        props.width
+    )
+    setPositionY(
+      (-2 * ((props.cursorPosition.y - props.height / 2) * props.vHeight)) /
+        props.height
+    )
   }, [props.cursorPosition])
   useFrame((state, delta) => {
     group.current.rotation.z += 0.001
-    group.current.position.set(positions.x, positions.y, 0)
+    group.current.position.set(positionX, positionY, 0)
   })
   const group = useRef()
   const { nodes, materials } = useGLTF('/xwing.gltf')

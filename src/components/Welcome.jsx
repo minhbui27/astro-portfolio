@@ -209,6 +209,8 @@ const Welcome = () => {
               cursorPosition={cursorPosition}
 			  vWidth={vWidth}
 			  vHeight={vHeight}
+				height={height}
+				width={width}
             />
             {/* <X_Wing position={[-7,0,0]} scale={0.002} rotation={[1,Math.PI/2,0]}/> */}
             <WelcomeText position={[-6, 0, 1]} />
@@ -221,7 +223,7 @@ const Welcome = () => {
           </group>
         </Suspense>
         {/* <OrbitControls/> */}
-        <Rig />
+		<Rig />
         <Stars position={[0, -5, 0]} />
       </Canvas>
     </div>
