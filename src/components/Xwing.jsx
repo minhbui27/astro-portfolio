@@ -30,8 +30,12 @@ export default function Model({ ...props }) {
     )
   }, [props.cursorPosition])
   useFrame((state, delta) => {
-    group.current.rotation.z += 0.001
-    group.current.position.set(positionX, positionY, 0)
+	  let rotation = Math.atan2((positionY-group.current.position.y), (positionX-group.current.position.x)) 
+	  group.current.rotation.y = rotation + Math.PI/2 
+	  console.log("Y: " + positionY + " X: " + positionX)
+	  console.log(rotation)
+	  // console.log((rotation + Math.PI/2) * 180/Math.PI)
+    // group.current.position.set(positionX, positionY, 0)
   })
   const group = useRef()
   const { nodes, materials } = useGLTF('/xwing.gltf')

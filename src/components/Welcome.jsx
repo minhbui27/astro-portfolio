@@ -168,10 +168,7 @@ const Welcome = () => {
     >
       {/* the camera position takes parameter x,y,z. x and y already gives full sphere of rotation, z specifies how
             "far way the camera is from the origin" */}
-      <Canvas
-        shadows
-        camera={camera}
-      >
+      <Canvas shadows camera={camera}>
         <ambientLight intensity={1} />
         <directionalLight
           castShadow
@@ -204,13 +201,14 @@ const Welcome = () => {
             </Html>
             {/* <Car position={[0,0,0]}/> */}
             <XWing
+				position={[5,1,0]}
               scale={0.22}
-              rotation={[1, -Math.PI / 2, 0]}
+              rotation={[1, 0, 0]}
               cursorPosition={cursorPosition}
-			  vWidth={vWidth}
-			  vHeight={vHeight}
-				height={height}
-				width={width}
+              vWidth={vWidth}
+              vHeight={vHeight}
+              height={height}
+              width={width}
             />
             {/* <X_Wing position={[-7,0,0]} scale={0.002} rotation={[1,Math.PI/2,0]}/> */}
             <WelcomeText position={[-6, 0, 1]} />
@@ -223,7 +221,7 @@ const Welcome = () => {
           </group>
         </Suspense>
         {/* <OrbitControls/> */}
-		<Rig />
+        <Rig />
         <Stars position={[0, -5, 0]} />
       </Canvas>
     </div>
