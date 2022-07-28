@@ -32,8 +32,8 @@ export default function Model({ ...props }) {
   useFrame((state, delta) => {
 	  let rotation = Math.atan2((positionY-group.current.position.y), (positionX-group.current.position.x)) 
 	  group.current.rotation.y = rotation + Math.PI/2 
-	  console.log("Y: " + positionY + " X: " + positionX)
-	  console.log(rotation)
+	  // console.log("Y: " + positionY + " X: " + positionX)
+	  // console.log(rotation)
 	  // console.log((rotation + Math.PI/2) * 180/Math.PI)
     // group.current.position.set(positionX, positionY, 0)
   })
