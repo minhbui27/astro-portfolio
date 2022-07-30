@@ -35,6 +35,7 @@ const Home = () => {
             initial='initial'
             animate='animate'
             exit='exit'
+			className='relative'
         >
             {/* The nav div should have higher z-index than all other divs */}
             <motion.div className='z-50 fixed w-screen'> 

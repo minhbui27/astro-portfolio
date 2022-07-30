@@ -1,4 +1,25 @@
 $introductionDiv: #000000;
 .introductionDiv {
-    background-color: $introductionDiv;
+  background-color: $introductionDiv;
 }
+@font-face {
+  font-family: 'InterBold';
+  src: url(/Inter-Bold.ttf) format('truetype');
+}
+.scrollingText {
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  position: relative;
+  // animation: crawl 60s linear;
+  /* Position the element so we can adjust the top property in the animation */
+  position: relative;
+  /* Defines the skew origin at the very center when we apply transforms on the animation */
+  transform-origin: 50% 100%;
+  color: #fcba03;
+  font-family: 'InterBold', sans-serif;
+}
+.icons {
+	display: block;
+	margin: auto;
+	height: inherit;
+}
+
