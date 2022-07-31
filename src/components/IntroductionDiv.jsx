@@ -29,13 +29,14 @@ function ScrollingText(props) {
         }}
       >
         <motion.div className='flex flex-col'>
-          <p className='flex justify-center text-7xl'> Inspired by Star Wars</p>
           <p className='flex justify-center text-7xl'>(Click the button)</p>
           <div className='h-8' />
           {props.text.split('\n').map((i) => {
-            // console.log(i)
-            return (
-              <p key={i} className='flex justify-center'>
+            console.log(i == '')
+            return i == '' ? (
+				<div className='h-48'></div>
+            ) : (
+              <p key={i} className='justify-center'>
                 {i}
               </p>
             )
@@ -93,7 +94,7 @@ const IntroductionDiv = () => {
           <ambientLight intensity={1} />
           <Suspense fallback={null}>
             <Html fullscreen>
-              <div class='fade'>
+              <div className='fade'>
                 <div className='relative m-2 top-24 z-10 h-16 w-16'>
                   {currentButton == 'start' ? (
                     <FontAwesomeIcon
@@ -109,7 +110,7 @@ const IntroductionDiv = () => {
                           y: '-6000px',
                           translateZ: '-2500px',
                           rotateX: '25deg',
-                          transition: { duration: 60 },
+                          transition: { duration: 45 },
                         })
                       }}
                     />
