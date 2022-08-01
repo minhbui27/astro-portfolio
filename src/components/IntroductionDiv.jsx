@@ -14,6 +14,7 @@ import * as random from 'maath/random/dist/maath-random.esm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faRedo, faStop } from '@fortawesome/free-solid-svg-icons'
 import './IntroductionDiv.scss'
+import yodaPointing from '/yoda-pointing.png'
 function ScrollingText(props) {
   const ref = useRef()
   const scroll = useScroll()
@@ -29,12 +30,11 @@ function ScrollingText(props) {
         }}
       >
         <motion.div className='flex flex-col'>
-          <p className='flex justify-center text-7xl'>(Click the button)</p>
           <div className='h-8' />
           {props.text.split('\n').map((i) => {
             console.log(i == '')
             return i == '' ? (
-				<div className='h-48'></div>
+              <div className='h-48'></div>
             ) : (
               <p key={i} className='justify-center'>
                 {i}
@@ -48,6 +48,7 @@ function ScrollingText(props) {
 }
 const IntroductionDiv = () => {
   const startScroll = useAnimationControls()
+  const arrowControl = useAnimationControls()
   const [currentButton, setButton] = useState('start')
   const [buttonColor, setColor] = useState('white')
   const introText = `Hi, my name is Minh Bui
@@ -94,7 +95,7 @@ const IntroductionDiv = () => {
           <ambientLight intensity={1} />
           <Suspense fallback={null}>
             <Html fullscreen>
-              <div className='fade'>
+              <div className='fade flex flex-col'>
                 <div className='relative m-2 top-24 z-10 h-16 w-16'>
                   {currentButton == 'start' ? (
                     <FontAwesomeIcon
@@ -106,11 +107,18 @@ const IntroductionDiv = () => {
                       onMouseOut={() => setColor('white')}
                       onClick={() => {
                         setButton('stop')
+                        arrowControl.start({
+                          opacity: 0,
+                          transition: { duration: 2 },
+                        })
                         startScroll.start({
-                          y: '-6000px',
-                          translateZ: '-2500px',
+                          y: '-10000px',
+                          translateZ: '-4000px',
                           rotateX: '25deg',
-                          transition: { duration: 45 },
+                          transition: {
+                            ease: 'linear',
+                            duration: 45,
+                          },
                         })
                       }}
                     />
@@ -129,6 +137,17 @@ const IntroductionDiv = () => {
                     />
                   )}
                 </div>
+                <motion.div
+                  animate={arrowControl}
+                  initial={{
+                    x: 100,
+                    y: 10,
+                    rotateZ: '-45deg',
+                  }}
+                  className='h-16 w-16'
+                >
+                  <motion.img initial={{ scale: 1.5 }} src={yodaPointing} />
+                </motion.div>
               </div>
               {/*        <div className='m-2 h-8 w-8 bg-blue-400'> */}
               {/*          <FontAwesomeIcon */}
