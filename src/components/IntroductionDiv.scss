@@ -1,6 +1,7 @@
 $introductionDiv: #000000;
 .introductionDiv {
-  background-color: $introductionDiv;
+  background-color:	linear-gradient(to bottom, #000428, #004e92);
+  // background-color: $introductionDiv;
 }
 @font-face {
   font-family: 'InterBold';

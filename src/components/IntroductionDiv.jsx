@@ -64,10 +64,10 @@ const IntroductionDiv = () => {
 	an excellent catalyst for growth
 	of imagination.
 
-	I went into Computer Engineering
-	because of my particular love for 
+	I chose Computer Engineering
+	because of my love for 
 	robotics, and both the hardware and
-	software engineering side that robotics
+	softwar engineering side that it
 	includes.
 
 	I endeavor to be a great software/hardware
@@ -77,7 +77,9 @@ const IntroductionDiv = () => {
 	was inspired when I was younger.
 
 	Note: Because the nature of the
-	framer-motion framework, you need to 
+	framer-motion framework, and since
+	I created this effect in almost
+	vanilla CSS, you need to 
 	reload the page in order to reset the text
 	to the original position
 	`
@@ -86,10 +88,8 @@ const IntroductionDiv = () => {
     <AnimatePresence>
       <motion.div
         id='introduction'
-        className='bg-black flex flex-col h-screen w-screen transform-gpu'
+        className='flex flex-col h-screen w-screen transform-gpu'
         ref={ref}
-        // animate = {{opacity: 1}}
-        // exit = {{opacity: 0}}
       >
         <Canvas shadows camera={{ position: [0, 0, 5], fov: 70 }}>
           <ambientLight intensity={1} />
@@ -99,7 +99,7 @@ const IntroductionDiv = () => {
                 <div className='relative m-2 top-24 z-10 h-16 w-16'>
                   {currentButton == 'start' ? (
                     <FontAwesomeIcon
-                      size='2x'
+                      size='3x'
                       className='icons'
                       icon={faPlay}
                       color={buttonColor}
@@ -124,7 +124,7 @@ const IntroductionDiv = () => {
                     />
                   ) : (
                     <FontAwesomeIcon
-                      size='2x'
+                      size='3x'
                       className='icons'
                       onMouseOver={() => setColor('#feda4a')}
                       onMouseOut={() => setColor('white')}
