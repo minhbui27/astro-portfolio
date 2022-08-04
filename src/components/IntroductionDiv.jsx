@@ -67,10 +67,10 @@ const IntroductionDiv = () => {
 	I chose Computer Engineering
 	because of my love for 
 	robotics, and both the hardware and
-	softwar engineering side that it
+	software side that it
 	includes.
 
-	I endeavor to be a great software/hardware
+	I endeavor to be a great 
 	engineer that will leave impressionable 
 	results that will inspire the 
 	young generation, as I 

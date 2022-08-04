@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import Nav from "../components/Nav";
-import Welcome from "../components/Welcome";
-import IntroductionDiv from "../components/IntroductionDiv";
-import HobbiesDiv from "../components/HobbiesDiv";
-import ProjectDiv from "../components/ProjectsDiv";
+import Nav from "../components/Nav.jsx";
+import Welcome from "../components/Welcome.jsx";
+import IntroductionDiv from "../components/IntroductionDiv.jsx";
+import HobbiesDiv from "../components/HobbiesDiv.jsx";
+import ProjectDiv from "../components/ProjectsDiv.jsx";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@ import ProjectDiv from "../components/ProjectsDiv";
 			<Nav client:idle/>
 		</div>
 		<Welcome client:only="react" />
-		<IntroductionDiv client:visible/>
+		<IntroductionDiv client:only="react"/>
 		<HobbiesDiv client:visible/>
 		<ProjectDiv client:visible/>
 	</div>
