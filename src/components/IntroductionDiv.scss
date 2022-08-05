@@ -1,7 +1,13 @@
 $introductionDiv: #000000;
-.introductionDiv {
-  background-color:	linear-gradient(to bottom, #000428, #004e92);
+.introduction {
   // background-color: $introductionDiv;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 40%,
+    rgba(2, 27, 121, 1) 80%,
+    rgba(0, 170, 204, 1) 100%
+  );
 }
 @font-face {
   font-family: 'InterBold';

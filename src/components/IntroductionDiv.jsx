@@ -56,7 +56,7 @@ const IntroductionDiv = () => {
 	Computer Engineering at UCSB
 	Some of my hobbies include
 	coding, gaming, and playing 
-	sports with my good friends.
+	sports with my friends.
 
 	I also enjoy scifi movies 
 	(such as Star Wars very much)
@@ -87,8 +87,7 @@ const IntroductionDiv = () => {
   return (
     <AnimatePresence>
       <motion.div
-        id='introduction'
-        className='flex flex-col h-screen w-screen transform-gpu'
+        className='introduction flex flex-col h-screen w-screen transform-gpu'
         ref={ref}
       >
         <Canvas shadows camera={{ position: [0, 0, 5], fov: 70 }}>
@@ -149,17 +148,6 @@ const IntroductionDiv = () => {
                   <motion.img initial={{ scale: 1.5 }} src={yodaPointing} />
                 </motion.div>
               </div>
-              {/*        <div className='m-2 h-8 w-8 bg-blue-400'> */}
-              {/*          <FontAwesomeIcon */}
-              {/*            className='icons' */}
-              {/*            icon={faRedo} */}
-              {/*            color='white' */}
-              {/*            onClick={() => { */}
-              {/* console.log('clicked') */}
-              {/**/}
-              {/*            }} */}
-              {/*          /> */}
-              {/*        </div> */}
               <ScrollingText startScroll={startScroll} text={introText} />
             </Html>
             <Stars position={[0, -5, 0]} />
