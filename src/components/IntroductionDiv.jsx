@@ -111,12 +111,12 @@ const IntroductionDiv = () => {
                           transition: { duration: 2 },
                         })
                         startScroll.start({
-                          y: '-10000px',
-                          translateZ: '-4000px',
+                          y: '-18000px',
+                          translateZ: '-7000px',
                           rotateX: '25deg',
                           transition: {
                             ease: 'linear',
-                            duration: 45,
+                            duration: 60,
                           },
                         })
                       }}

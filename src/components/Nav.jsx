@@ -124,8 +124,8 @@ function Nav() {
                   className={
                     (scroll < 1
                       ? 'WelcomeText'
-                      : 'hover:bg-gray-700 text-white') +
-                    ' cursor-pointer hover:bg-gray-900 text-base px-3 py-2 rounded-md font-medium'
+                      : 'hover:bg-gray-700') +
+                    ' cursor-pointer text-base px-3 py-2 rounded-md font-medium'
                   }
                   aria-current='page'
                 >
@@ -138,9 +138,9 @@ function Nav() {
                   to='introduction'
                   className={
                     (scroll < 2 && scroll >= 1
-                      ? 'bg-gray-700'
+                      ? 'bg-gray-900'
                       : 'hover:bg-gray-700') +
-                    ' cursor-pointer text-base text-white px-3 py-2 rounded-md font-medium'
+                    ' cursor-pointer text-base px-3 py-2 rounded-md font-medium'
                   }
                 >
                   Introduction
@@ -154,7 +154,7 @@ function Nav() {
                     (scroll < 3 && scroll >= 2
                       ? 'bg-gray-900'
                       : 'hover:bg-gray-700') +
-                    ' cursor-pointer text-base text-white px-3 py-2 rounded-md font-medium'
+                    ' cursor-pointer text-base px-3 py-2 rounded-md font-medium'
                   }
                 >
                   Hobbies
@@ -168,7 +168,7 @@ function Nav() {
                     (scroll < 4 && scroll >= 3
                       ? 'bg-gray-900'
                       : 'hover:bg-gray-700') +
-                    ' cursor-pointer text-base text-white px-3 py-2 rounded-md font-medium'
+                    ' cursor-pointer text-base px-3 py-2 rounded-md font-medium'
                   }
                 >
                   Projects

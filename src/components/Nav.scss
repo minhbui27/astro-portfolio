@@ -1,10 +1,11 @@
 $Welcome: #0f172a; 
 $introductionDiv: #1e293b;
 $HobbiesDiv: rgb(31,41,55);
-$ProjectsDiv: rgb(30,58,138);
+$ProjectsDiv: rgb(0,58,138);
 $cyellow: #FFD400;
 .Welcome {
     background-color: transparent;
+	color: white;
 	// background-image: url('/starwarspattern.png');
 	// background-repeat: repeat;
 	// background-size: 400px 400px; 
@@ -17,12 +18,16 @@ $cyellow: #FFD400;
 
 .IntroductionDiv {
     background-color: transparent; 
+	color: white;
 }
 
 .HobbiesDiv {
-    background-color: $HobbiesDiv;
+	color: #F6EFA6;
+	background-size: 400px 275px;
+	background-image: url("./clouds.jpg");
 }
 
 .ProjectsDiv {
+	color: white;
     background-color: $ProjectsDiv;
 }
