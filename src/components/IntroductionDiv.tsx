@@ -15,9 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faRedo, faStop } from '@fortawesome/free-solid-svg-icons'
 import './IntroductionDiv.scss'
 import yodaPointing from '/yoda-pointing.png'
-function ScrollingText(props) {
-  const ref = useRef()
-  const scroll = useScroll()
+function ScrollingText(props?): JSX.Element {
   return (
     <section className='star-wars'>
       <motion.div
@@ -31,9 +29,9 @@ function ScrollingText(props) {
       >
         <motion.div className='flex flex-col'>
           <div className='h-8' />
-          {props.text.split('\n').map((i) => {
+          {props.text.split('\n').map((i: string): JSX.Element => {
             console.log(i == '')
-            return i == '' ? (
+            return i == "" ? (
               <div className='h-48'></div>
             ) : (
               <p key={i} className='justify-center'>
@@ -46,12 +44,12 @@ function ScrollingText(props) {
     </section>
   )
 }
-const IntroductionDiv = () => {
+const IntroductionDiv = (): JSX.Element => {
   const startScroll = useAnimationControls()
   const arrowControl = useAnimationControls()
-  const [currentButton, setButton] = useState('start')
-  const [buttonColor, setColor] = useState('white')
-  const introText = `Hi, my name is Minh Bui
+  const [currentButton, setButton] = useState<string | string>('start')
+  const [buttonColor, setColor] = useState<string | string>('white')
+  const introText: string = `Hi, my name is Minh Bui
 	I'm currently a student studying 
 	Computer Engineering at UCSB
 	Some of my hobbies include
