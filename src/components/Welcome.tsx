@@ -1,18 +1,26 @@
 import * as THREE from 'three'
 import React, { Suspense, useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { softShadows, OrbitControls, Text, Points, PointMaterial, useGLTF } from '@react-three/drei'
-import { ScrollControls } from '../helpers/ScrollControls'
+import { Canvas, ThreeElements, useFrame, useThree } from '@react-three/fiber'
+import {
+  softShadows,
+  OrbitControls,
+  Text,
+  Points,
+  PointMaterial,
+} from '@react-three/drei'
 import * as random from 'maath/random/dist/maath-random.esm'
 import { Html } from '@react-three/drei'
 import SpaceStation from './SpaceStation'
 import XWing from './Xwing'
-import { visibleHeightAtZDepth, visibleWidthAtZDepth } from '../helpers/VsizeAtZDepth'
+import {
+  visibleHeightAtZDepth,
+  visibleWidthAtZDepth,
+} from '../helpers/VsizeAtZDepth'
 import useWindowDimensions from '../helpers/WindowDimensions'
 // Bounds file was made by some random guy on github and i straight up yanked his code. Link to the fork:
 // https://codesandbox.io/s/bounds-and-makedefault-forked-y12ie?file=/src/App.js
 // Compared to the original Bounds import from @react-three/drei, this version ensures that on window resize(first render or reload) the objects within the bounds doesn't get rotated
-import { Bounds } from '../helpers/BoundsNoRotation.tsx'
+import { Bounds } from '../helpers/BoundsNoRotation'
 export function Stars(props) {
   const ref = useRef()
   const [sphere] = useState(() =>
@@ -54,9 +62,10 @@ function Rig() {
 }
 function WelcomeText(props) {
   const welcomeText = useRef()
-  const positionX = props.position[0]
-  const positionY = props.position[1]
-  const positionZ = props.position[2]
+  const positionX: number = props.position[0]
+  const positionY: number = props.position[1]
+  const positionZ: number = props.position[2]
+  const fontSize: number = 1
   return (
     <group ref={welcomeText}>
       <mesh position={[positionX, positionY, positionZ]}>
@@ -66,7 +75,7 @@ function WelcomeText(props) {
           color='white'
           anchorX='left'
           anchorY='middle'
-          fontSize='1'
+          fontSize= {fontSize}
           font='/Inter-Bold.ttf'
         >
           HI!
@@ -79,7 +88,7 @@ function WelcomeText(props) {
           color='white'
           anchorX='left'
           anchorY='middle'
-          fontSize='1'
+          fontSize={fontSize}
           font='/Inter-Bold.ttf'
         >
           I'M MINH
@@ -91,7 +100,7 @@ function WelcomeText(props) {
           color='#DEB841'
           anchorX='left'
           anchorY='middle'
-          fontSize='1'
+          fontSize={fontSize}
           font='/Inter-Bold.ttf'
         >
           WELCOME TO MY SITE
@@ -144,11 +153,16 @@ function ScrollLogo({ ...props }) {
 }
 softShadows()
 const Welcome = () => {
-	const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
-	camera.position.set(0,0,8);
-	const vWidth = visibleWidthAtZDepth(0,camera);
-	const vHeight = visibleHeightAtZDepth(0,camera);
-  const {height, width} = useWindowDimensions()
+  const camera = new THREE.PerspectiveCamera(
+    40,
+    window.innerWidth / window.innerHeight,
+    1,
+    10000
+  )
+  camera.position.set(0, 0, 8)
+  const vWidth = visibleWidthAtZDepth(0, camera)
+  const vHeight = visibleHeightAtZDepth(0, camera)
+  const { height, width } = useWindowDimensions()
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const handleCursorMove = (event) => {
     setCursorPosition({
@@ -193,7 +207,7 @@ const Welcome = () => {
                 </group> */}
 
         <Suspense fallback={null}>
-          <Bounds fit clip observe margin={10} fixedOrientation>
+          <Bounds fit clip margin={10} fixedOrientation>
             <Html position={[-1, 4, 0]}>
               <div className='text-white md:opacity-0 opacity-100 align-center'>
                 Use desktop for the best experience
@@ -201,7 +215,7 @@ const Welcome = () => {
             </Html>
             {/* <Car position={[0,0,0]}/> */}
             <XWing
-				position={[5,1,0]}
+              position={[5, 1, 0]}
               scale={0.22}
               rotation={[1, 0, 0]}
               cursorPosition={cursorPosition}

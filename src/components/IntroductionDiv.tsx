@@ -1,15 +1,12 @@
 import React, { useRef, useEffect, Suspense, useState } from 'react'
 import {
-  useInView,
   motion,
   AnimatePresence,
   useAnimationControls,
 } from 'framer-motion'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Text, Html } from '@react-three/drei'
-import { ScrollControls, useScroll } from '../helpers/ScrollControls'
+import { Canvas } from '@react-three/fiber'
+import {  Html } from '@react-three/drei'
 import { Stars } from './Welcome'
-import { Bounds } from '../helpers/BoundsNoRotation.tsx'
 import * as random from 'maath/random/dist/maath-random.esm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faRedo, faStop } from '@fortawesome/free-solid-svg-icons'
@@ -30,7 +27,7 @@ function ScrollingText(props?): JSX.Element {
         <motion.div className='flex flex-col'>
           <div className='h-8' />
           {props.text.split('\n').map((i: string): JSX.Element => {
-            console.log(i == '')
+            // console.log(i == '')
             return i == "" ? (
               <div className='h-48'></div>
             ) : (
@@ -47,8 +44,8 @@ function ScrollingText(props?): JSX.Element {
 const IntroductionDiv = (): JSX.Element => {
   const startScroll = useAnimationControls()
   const arrowControl = useAnimationControls()
-  const [currentButton, setButton] = useState<string | string>('start')
-  const [buttonColor, setColor] = useState<string | string>('white')
+  const [currentButton, setButton] = useState<string | null>('start')
+  const [buttonColor, setColor] = useState<string | null>('white')
   const introText: string = `Hi, my name is Minh Bui
 	I'm currently a student studying 
 	Computer Engineering at UCSB
@@ -85,7 +82,7 @@ const IntroductionDiv = (): JSX.Element => {
   return (
     <AnimatePresence>
       <motion.div
-        className='introduction flex flex-col h-screen w-screen transform-gpu'
+        className='introduction flex flex-col h-screen transform-gpu'
         ref={ref}
       >
         <Canvas shadows camera={{ position: [0, 0, 5], fov: 70 }}>

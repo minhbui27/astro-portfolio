@@ -8,12 +8,12 @@ import './Nav.scss'
 //The smooth scroll animations are made using the package react-scroll, for additional animation options
 //read the documentation on npmjs
 
-function Nav() {
-  const [scroll, setScroll] = useState(0)
+function Nav(): JSX.Element {
+  const [scroll, setScroll] = useState<number|null>(0)
   //This function helps to change the color of the navbar depending on the current location
   //of window.scrollY
-  const handleScroll = () => {
-    const position = window.scrollY
+  const handleScroll = (): void => {
+    const position: number = window.scrollY
     //console.log(position/window.innerHeight)
     setScroll(position / window.innerHeight)
   }
@@ -29,7 +29,7 @@ function Nav() {
     }
   }, [])
 
-  const [menu, setMenu] = useState(true)
+  const [menu, setMenu] = useState<boolean | null>(true)
   return (
     <nav
       className={

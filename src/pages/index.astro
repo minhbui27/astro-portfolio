@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.jsx";
 import Welcome from "../components/Welcome.jsx";
-import IntroductionDiv from "../components/IntroductionDiv.jsx";
+import Footer from "../components/Footer"
+import IntroductionDiv from "../components/IntroductionDiv";
 import HobbiesDiv from "../components/HobbiesDiv.astro";
 import ProjectDiv from "../components/ProjectsDiv.jsx";
 ---
@@ -25,6 +25,7 @@ import ProjectDiv from "../components/ProjectsDiv.jsx";
 		<IntroductionDiv client:only="react"/>
 		<HobbiesDiv client:visible/>
 		<ProjectDiv client:visible/>
+		<Footer client:visible/>
 	</div>
 </body>
 
