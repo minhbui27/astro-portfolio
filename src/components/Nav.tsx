@@ -9,7 +9,7 @@ import './Nav.scss'
 //read the documentation on npmjs
 
 function Nav(): JSX.Element {
-  const [scroll, setScroll] = useState<number|null>(0)
+  const [scroll, setScroll] = useState<number | null>(0)
   //This function helps to change the color of the navbar depending on the current location
   //of window.scrollY
   const handleScroll = (): void => {
@@ -17,7 +17,7 @@ function Nav(): JSX.Element {
     //console.log(position/window.innerHeight)
     setScroll(position / window.innerHeight)
   }
-  useEffect(() => {
+  useEffect((): void => {
     setScroll(window.scrollY / window.innerHeight)
   })
   //This useEffects outputs the current scroll position of the window
@@ -28,20 +28,18 @@ function Nav(): JSX.Element {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+  const currentScroll: string =
+    scroll < 1
+      ? 'Welcome'
+      : scroll < 2 && scroll >= 1
+      ? 'IntroductionDiv'
+      : scroll < 3 && scroll >= 2
+      ? 'ProjectsDiv'
+      : 'HobbiesDiv'
 
   const [menu, setMenu] = useState<boolean | null>(true)
   return (
-    <nav
-      className={
-        scroll < 1
-          ? 'Welcome'
-          : scroll < 2 && scroll >= 1
-          ? 'IntroductionDiv'
-          : scroll < 3 && scroll >= 2
-          ? 'HobbiesDiv'
-          : 'ProjectsDiv'
-      }
-    >
+    <nav className={currentScroll}>
       <div className='sm:px-6 lg:pr-16 lg:pl-8'>
         <div className='relative flex items-center justify-between h-16'>
           <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
@@ -112,9 +110,9 @@ function Nav(): JSX.Element {
               </div>
             </div>
           </div>
-          <div className='flex-1 flex items-center justify-end sm:items-stretch sm:justify-end'>
-            <div className='hidden sm:block'>
-              <div className='flex space-x-4'>
+          <div className='flex-1 flex h-full items-center justify-end sm:items-stretch sm:justify-end'>
+            <div className={`${currentScroll}link navItems hidden sm:block py-4`}>
+              <div className= 'flex space-x-4'>
                 {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
 
                 <Link
@@ -122,9 +120,7 @@ function Nav(): JSX.Element {
                   smooth={true}
                   to='welcome'
                   className={
-                    (scroll < 1
-                      ? 'WelcomeText'
-                      : 'hover:bg-gray-700') +
+                    (scroll < 1 ? 'WelcomeText' : 'hover:bg-gray-700') +
                     ' cursor-pointer text-base px-3 py-2 rounded-md font-medium'
                   }
                   aria-current='page'
@@ -134,7 +130,7 @@ function Nav(): JSX.Element {
 
                 <Link
                   spy={true}
-				  smooth={true}
+                  smooth={true}
                   to='introduction'
                   className={
                     (scroll < 2 && scroll >= 1
@@ -148,8 +144,8 @@ function Nav(): JSX.Element {
 
                 <Link
                   spy={true}
-				  smooth={true}
-                  to='hobbies'
+                  smooth={true}
+                  to='projects'
                   className={
                     (scroll < 3 && scroll >= 2
                       ? 'bg-gray-900'
@@ -157,13 +153,13 @@ function Nav(): JSX.Element {
                     ' cursor-pointer text-base px-3 py-2 rounded-md font-medium'
                   }
                 >
-                  Hobbies
+                  Projects
                 </Link>
 
                 <Link
-				  spy={true}
-				  smooth={true}
-                  to ='projects'
+                  spy={true}
+                  smooth={true}
+                  to='hobbies'
                   className={
                     (scroll < 4 && scroll >= 3
                       ? 'bg-gray-900'
@@ -171,7 +167,7 @@ function Nav(): JSX.Element {
                     ' cursor-pointer text-base px-3 py-2 rounded-md font-medium'
                   }
                 >
-                  Projects
+                  Hobbies
                 </Link>
               </div>
             </div>
@@ -196,17 +192,17 @@ function Nav(): JSX.Element {
           </Link>
 
           <Link
-            to='hobbies'
-            className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
-          >
-            Hobbies
-          </Link>
-
-          <Link
             to='projects'
             className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
           >
             Projects
+          </Link>
+
+          <Link
+            to='hobbies'
+            className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
+          >
+            Hobbies
           </Link>
         </div>
       </div>

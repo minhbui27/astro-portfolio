@@ -29,6 +29,10 @@ $cyellow: #FFD400;
 }
 
 .ProjectsDiv {
-	color: white;
-    background-color: $ProjectsDiv;
+    background-color: transparent;
+	color: $cyellow;
+}
+
+.navItems {
+	text-align: center;
 }

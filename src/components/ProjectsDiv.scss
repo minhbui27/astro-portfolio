@@ -1,0 +1,13 @@
+#projects {
+	background: url('/projectsdiv.jpg') center;
+	background-size: cover;	
+	background-repeat: no-repeat;
+}
+@font-face {
+  font-family: 'InterBold';
+  src: url(/Inter-Bold.ttf) format('truetype');
+}
+.projectsText {
+  font-family: 'InterBold', sans-serif;
+  text-align: center;
+}

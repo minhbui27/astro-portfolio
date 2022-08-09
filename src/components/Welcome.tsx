@@ -21,8 +21,8 @@ import useWindowDimensions from '../helpers/WindowDimensions'
 // https://codesandbox.io/s/bounds-and-makedefault-forked-y12ie?file=/src/App.js
 // Compared to the original Bounds import from @react-three/drei, this version ensures that on window resize(first render or reload) the objects within the bounds doesn't get rotated
 import { Bounds } from '../helpers/BoundsNoRotation'
-export function Stars(props) {
-  const ref = useRef()
+export function Stars(props: number[]) {
+  const ref = useRef(null)
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(7500), { radius: 15 })
   )
@@ -199,13 +199,6 @@ const Welcome = () => {
         <pointLight position={[-10, 0, -20]} intensity={0.5} />
         <pointLight position={[0, -10, 0]} intensity={0.5} />
 
-        {/* <group>
-                    <mesh receiveShadow rotation={[-Math.PI/2,0,0]} position={[0,-3,0]}>
-                        <planeBufferGeometry attach="geometry" args={[100,100]}/>
-                        <shadowMaterial attach="material" opacity="0.3"/>
-                    </mesh>
-                </group> */}
-
         <Suspense fallback={null}>
           <Bounds fit clip margin={10} fixedOrientation>
             <Html position={[-1, 4, 0]}>
@@ -215,7 +208,7 @@ const Welcome = () => {
             </Html>
             {/* <Car position={[0,0,0]}/> */}
             <XWing
-              position={[5, 1, 0]}
+              position={[0, 1, 0]}
               scale={0.22}
               rotation={[1, 0, 0]}
               cursorPosition={cursorPosition}
@@ -226,7 +219,7 @@ const Welcome = () => {
             />
             {/* <X_Wing position={[-7,0,0]} scale={0.002} rotation={[1,Math.PI/2,0]}/> */}
             <WelcomeText position={[-6, 0, 1]} />
-            <Html position={[0, -6, 0]}>
+            <Html position={[0, -4, 0]}>
               <ScrollLogo color={'#ffffff'} />
             </Html>
           </Bounds>
@@ -235,7 +228,7 @@ const Welcome = () => {
           </group>
         </Suspense>
         {/* <OrbitControls/> */}
-        <Rig />
+        {/* <Rig /> */}
         <Stars position={[0, -5, 0]} />
       </Canvas>
     </div>

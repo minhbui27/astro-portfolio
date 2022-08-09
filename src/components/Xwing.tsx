@@ -9,12 +9,23 @@ title: Poe Dameron X wing
 import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { useScroll } from '../helpers/ScrollControls'
+
+type GLTFResult = {
+	nodes: {
+		Pyramid: THREE.Mesh;
+	};
+	materials: {
+		['default']: THREE.MeshStandardMaterial;
+	};
+}
 
 export default function Model({ ...props }) {
-  const [prevPositions, setPrevPositions] = useState({ x: 0, y: 0 })
-  const [positionX, setPositionX] = useState(0)
-  const [positionY, setPositionY] = useState(0)
+  const [prevPositions, setPrevPositions] = useState<{
+    x: number
+    y: number
+  } | null>({ x: 0, y: 0 })
+  const [positionX, setPositionX] = useState<number | null>(0)
+  const [positionY, setPositionY] = useState<number | null>(0)
   useEffect(() => {
     setPrevPositions({
       x: positionX,
@@ -30,15 +41,18 @@ export default function Model({ ...props }) {
     )
   }, [props.cursorPosition])
   useFrame((state, delta) => {
-	  let rotation = Math.atan2((positionY-group.current.position.y), (positionX-group.current.position.x)) 
-	  group.current.rotation.y = rotation + Math.PI/2 
-	  // console.log("Y: " + positionY + " X: " + positionX)
-	  // console.log(rotation)
-	  // console.log((rotation + Math.PI/2) * 180/Math.PI)
+    let rotation = Math.atan2(
+      positionY - group.current.position.y,
+      positionX - group.current.position.x
+    )
+    group.current.rotation.y = rotation + Math.PI / 2
+    // console.log("Y: " + positionY + " X: " + positionX)
+    // console.log(rotation)
+    // console.log((rotation + Math.PI/2) * 180/Math.PI)
     // group.current.position.set(positionX, positionY, 0)
   })
-  const group = useRef()
-  const { nodes, materials } = useGLTF('/xwing.gltf')
+  const group = useRef(null)
+  const { nodes, materials } = useGLTF('/xwing.gltf') as GLTFResult 
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
