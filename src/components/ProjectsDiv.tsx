@@ -3,6 +3,7 @@ import Card from '../layouts/Card'
 import { motion } from 'framer-motion'
 import './ProjectsDiv.scss'
 const ProjectDiv = (): JSX.Element => {
+  const ids: number[] = [1, 2, 3, 4, 5, 6]
   return (
     <motion.div
       id='projects'
@@ -15,11 +16,6 @@ const ProjectDiv = (): JSX.Element => {
 
       <div className='w-full h-auto md:h-full items-center'>
         <div className='flex flex-nowrap items-start h-full overflow-x-scroll'>
-			<Card/>
-			<Card/>
-			<Card/>
-			<Card/>
-			<Card/>
         </div>
       </div>
     </motion.div>
