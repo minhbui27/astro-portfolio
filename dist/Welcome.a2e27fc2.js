@@ -1,0 +1,1 @@
+import{S as i,W as s}from"./chunks/Welcome.6e8052e2.js";import"./chunks/index.2b326f7a.js";import"./chunks/jsx-runtime.89dffe07.js";import"./chunks/client.58dd3da9.js";import"./chunks/index.95f87dd5.js";export{i as Stars,s as default};
