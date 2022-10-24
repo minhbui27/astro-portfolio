@@ -5,7 +5,7 @@ import {
   AnimatePresence,
   useAnimationControls,
 } from 'framer-motion'
-import '../styles/Scroll.scss'
+import '../styles/Scroll.css'
 import { Canvas } from '@react-three/fiber'
 import {  Html } from '@react-three/drei'
 import { Stars } from './Welcome'
