@@ -34,7 +34,7 @@
     "@testing-library/user-event": "^12.8.3",
     "@types/three": "^0.144.0",
     "babel-plugin-macros": "^3.1.0",
-    "core-js": "^3.23.5",
+    "core-js": "^3.26.0",
     "esbuild-linux-64": "^0.14.49",
     "framer-motion": "^6.4.2",
     "hast-util-to-html": "^8.0.3",
