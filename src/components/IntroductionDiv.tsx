@@ -1,16 +1,17 @@
-import React, { useRef, useEffect, Suspense, useState } from 'react'
+import * as React from 'react'
+import { useRef, useEffect, Suspense, useState } from 'react'
 import {
   motion,
   AnimatePresence,
   useAnimationControls,
 } from 'framer-motion'
+import './IntroductionDiv.scss'
 import { Canvas } from '@react-three/fiber'
 import {  Html } from '@react-three/drei'
 import { Stars } from './Welcome'
 import * as random from 'maath/random/dist/maath-random.esm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faRedo, faStop } from '@fortawesome/free-solid-svg-icons'
-import './IntroductionDiv.scss'
 import yodaPointing from '/yoda-pointing.png'
 function ScrollingText(props?): JSX.Element {
   return (
