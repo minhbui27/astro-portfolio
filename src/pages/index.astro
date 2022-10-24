@@ -3,6 +3,7 @@ import Nav from "../components/Nav.jsx";
 import Welcome from "../components/Welcome";
 import Footer from "../components/Footer";
 import IntroductionDiv from "../components/IntroductionDiv";
+import Introduction from "../components/Introduction"
 import HobbiesDiv from "../components/HobbiesDiv.astro";
 import ProjectDiv from "../components/ProjectsDiv.jsx";
 ---
@@ -22,6 +23,7 @@ import ProjectDiv from "../components/ProjectsDiv.jsx";
 			<Nav client:idle/>
 		</div>
 		<Welcome client:only="react" />
+		<Introduction client:only="react"/>
 		<IntroductionDiv client:only="react"/>
 		<ProjectDiv client:visible/>
 		<HobbiesDiv client:visible/>
