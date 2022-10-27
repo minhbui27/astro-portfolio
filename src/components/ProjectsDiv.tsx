@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import Card from '../layouts/Card'
 import { motion } from 'framer-motion'
 import './ProjectsDiv.scss'
@@ -16,6 +16,10 @@ const ProjectDiv = (): JSX.Element => {
 
       <div className='w-full h-auto md:h-full items-center'>
         <div className='flex flex-nowrap items-start h-full overflow-x-scroll'>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
     </motion.div>

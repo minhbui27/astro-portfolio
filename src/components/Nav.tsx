@@ -104,7 +104,8 @@ function Nav(): JSX.Element {
                 <div className='flex space-x-4'>
                   {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
                   <p className='text-3xl font-normal antialiased font-sans text-white hover:text-blue-500'>
-                    {scroll}
+                    {/* {scroll} */}
+					Minh Bui
                   </p>
                 </div>
               </div>

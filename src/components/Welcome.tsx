@@ -60,8 +60,9 @@ function Rig() {
     )
   )
 }
-function WelcomeText(props) {
+function WelcomeText({ ...props }): JSX.Element {
   const welcomeText = useRef()
+  const width: number = props.width
   const positionX: number = props.position[0]
   const positionY: number = props.position[1]
   const positionZ: number = props.position[2]
@@ -75,7 +76,7 @@ function WelcomeText(props) {
           color='white'
           anchorX='left'
           anchorY='middle'
-          fontSize= {fontSize}
+          fontSize={fontSize}
           font='/Inter-Bold.ttf'
         >
           HI!
@@ -94,18 +95,47 @@ function WelcomeText(props) {
           I'M MINH
         </Text>
       </mesh>
-      <mesh position={[positionX, positionY - 2.4, positionZ]}>
-        <Text
-          outlineWidth='5%'
-          color='#DEB841'
-          anchorX='left'
-          anchorY='middle'
-          fontSize={fontSize}
-          font='/Inter-Bold.ttf'
-        >
-          WELCOME TO MY SITE
-        </Text>
-      </mesh>
+      {width > 1000 ? (
+        <mesh position={[positionX, positionY - 2.4, positionZ]}>
+          <Text
+            outlineWidth='5%'
+            color='#DEB841'
+            anchorX='left'
+            anchorY='middle'
+            fontSize={fontSize}
+            font='/Inter-Bold.ttf'
+          >
+            WELCOME TO MY SITE
+          </Text>
+        </mesh>
+      ) : (
+        <>
+          <mesh position={[positionX, positionY - 2.4, positionZ]}>
+            <Text
+              outlineWidth='5%'
+              color='#DEB841'
+              anchorX='left'
+              anchorY='middle'
+              fontSize={fontSize}
+              font='/Inter-Bold.ttf'
+            >
+              WELCOME TO
+            </Text>
+          </mesh>
+          <mesh position={[positionX, positionY - 3.6, positionZ]}>
+            <Text
+              outlineWidth='5%'
+              color='#DEB841'
+              anchorX='left'
+              anchorY='middle'
+              fontSize={fontSize}
+              font='/Inter-Bold.ttf'
+            >
+              MY SITE
+            </Text>
+          </mesh>
+        </>
+      )}
     </group>
   )
 }
@@ -200,15 +230,15 @@ const Welcome = () => {
         <pointLight position={[0, -10, 0]} intensity={0.5} />
 
         <Suspense fallback={null}>
-          <Bounds fit clip margin={10} fixedOrientation>
-            <Html position={[-1, 4, 0]}>
+          <Bounds fit clip margin={8} fixedOrientation>
+            <Html position={[-3, 4, 0]}>
               <div className='text-white md:opacity-0 opacity-100 align-center'>
                 Use desktop for the best experience
               </div>
             </Html>
             {/* <Car position={[0,0,0]}/> */}
             <XWing
-              position={[0, 1, 0]}
+              position={width > 1000 ? [0, 1, 0] : [-2,1,0]}
               scale={0.22}
               rotation={[1, 0, 0]}
               cursorPosition={cursorPosition}
@@ -217,14 +247,14 @@ const Welcome = () => {
               height={height}
               width={width}
             />
-            {/* <X_Wing position={[-7,0,0]} scale={0.002} rotation={[1,Math.PI/2,0]}/> */}
-            <WelcomeText position={[-6, 0, 1]} />
-            <Html position={[0, -4, 0]}>
-              <ScrollLogo color={'#ffffff'} />
-            </Html>
+            <WelcomeText position={[-6, 1, 1]} width={width} />
+			{/* 3 lines below enable the scroll logo, disabled for now because it don look good */}
+            {/* <Html position={[0, -4, 0]}> */}
+            {/*   <ScrollLogo color={'#ffffff'} /> */}
+            {/* </Html> */}
           </Bounds>
           <group position={[10, 0, -4]} rotation={[0, -Math.PI / 2.5, 0]}>
-            {/* <SpaceStation scale={0.001} /> */}
+            <SpaceStation scale={0.001} />
           </group>
         </Suspense>
         {/* <OrbitControls/> */}
