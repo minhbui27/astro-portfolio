@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'InterBold';
+  src: url(/Inter-Bold.ttf) format('truetype');
+}
+.card {
+	min-height: inherit;
+}
+.card-title {
+  font-family: 'InterBold', sans-serif;
+}
