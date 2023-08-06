@@ -9,7 +9,12 @@ const ProjectDiv = (): JSX.Element => {
         Some of my projects
       </motion.div>
 
-      <div className='px-8 flex flex-col md:flex-row justify-center card-container'>
+      <div className='px-8 flex flex-wrap flex-col md:flex-row justify-center card-container'>
+					<Card
+						image='robot_hand.jpg'
+						title='RC Robot Hand'
+						content='A bluetooth and USB controlled robot hand that is capable of curling each individual finger with many degrees of freedom, and following configurable presets. All parts were designed by me in Fusion360 and 3d-printed. Controlled using an STM32L476 board through UART.'
+					/>
 					<Card
 						image='digital_oscillator.jpg'
 						title='Bistable Clock'
